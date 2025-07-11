@@ -1,27 +1,27 @@
 # Solid and clean code in Java
-In this repository, I will be documenting the concepts, principles and best practices of Clean code y the Solid principles in Java. My goal is to have a resource that I can return when need to review or consult especific examples. here, you'll find examples organized by topics, along with brief explanations for each. 
+In this repository, I will be documenting the concepts, principles and best practices of Clean code y the SOLID principles in Java. My goal is to have a resource that I can return when I need to review or consult especific examples. here, you'll find examples organized by topics, along with brief explanations for each. 
 
 ## 📚 Table of Contents
 
-* [🔹 Clean Code Principles](#-clean-code-principles)
+- [Principles of Clean Code](#principles-of-clean-code)
+  - [Names That Reveal Intention](#names-that-reveal-intention)
+  - [Functions](#functions)
+  - [Comments](#comments)
+  - [Code Formatting](#code-formatting)
+  - [Error Handling](#error-handling)
+  - [Unit Testing](#unit-testing)
+  - [Code Smells in Java](#code-smells-in-java)
+- [SOLID Principles](#solid-principles)
+  - [Cohesion and Coupling](#cohesion-and-coupling)
+  - [Single Responsibility Principle (SRP)](#single-responsibility-principle-srp)
+  - [Open/Closed Principle (OCP)](#openclosed-principle-ocp)
+  - [Liskov Substitution Principle (LSP)](#liskov-substitution-principle-lsp)
+  - [Interface Segregation Principle (ISP)](#interface-segregation-principle-isp)
+  - [Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
+    
 
-  * [📛 Naming](#-naming)
-  * [🔧 Functions](#-functions)
-  * [💬 Comments](###-comment)
-  * [📐 Code Formatting](#-code-formatting)
-  * [⚠️ Error Handling](#️-error-handling)
-  * [🧪 Unit Testing](#-unit-testing)
-  * [🔍 Code Smells in Java](#-code-smells-in-java)
-* [🔸 SOLID Principles](#-solid-principles)
-
-  * [SRP – Single Responsibility Principle](#srp--single-responsibility-principle)
-  * [OCP – Open/Closed Principle](#ocp--openclosed-principle)
-  * [LSP – Liskov Substitution Principle](#lsp--liskov-substitution-principle)
-  * [ISP – Interface Segregation Principle](#isp--interface-segregation-principle)
-  * [DIP – Dependency Inversion Principle](#dip--dependency-inversion-principle)
-
-## principles of clean code
-Clean code is easy of read, understand and modify. it's achieved through a clear structured, meaningful names, small funtions and **Single Responsability per Component**. its quality is maintained and improved through continues and safe refactoring, supported by a good unit test coverage that allows does changes to be made with confidence.
+## Principles of Clean Code
+Clean code is easy of read, understand and modify. it's achieved through a clear structured, meaningful names, small functions and **Single Responsability per Component**. its quality is maintained and improved through continuous and safe refactoring, supported by a good unit test coverage that allows those changes to be made with confidence.
 ### Names that reveal intention
 
 #### Names should be clear and reflect our intention.
@@ -109,7 +109,7 @@ public class DateParser{
 ```
 firstName, lastName, street, houseNumber, city,state, zipcode.
 ```
-The above variables being together it's obvious that is an address, but adding a prefix could provide imformation. For example, if a User clase has name but also an address.
+These variables clearly form an address when used together, but adding a prefix could provide imformation. For example, if a User class has name but also an address.
 
 This way It becomes clearer what each one is used.
 ```user.getFirstName()``` **vs** ```user.getAddrFirstName()```
@@ -119,7 +119,7 @@ This way It becomes clearer what each one is used.
 
   ❌ **Bad example**
 
-  We have this function that does tow things. violing this principle.
+  We have this function that does two things. violing this principle.
   ```java
   public Integer readNumbersFromFileAndCalculateTotal(String fileUrl) {
     List<String> numbers =
@@ -162,7 +162,7 @@ This way It becomes clearer what each one is used.
 
   ❌ **Bad example**
 
-  This clase performs functions that are not part of its responsabilities. 
+  This class performs functions that are not part of its responsabilities. 
   ```java
   public class Person {
 
@@ -176,7 +176,7 @@ This way It becomes clearer what each one is used.
   ```
   ✅ **Goog example**
   
-  However, in this version the Person clase only handles its functions and the Car class handles its own.
+  However, in this version the Person class only handles its functions and the Car class handles its own.
    ```java
    public class Person {
 
@@ -249,7 +249,7 @@ This way It becomes clearer what each one is used.
    if(isSecure(password))
    ```
 
-- Never leave code commented out the is no longer being used. **¡that's why we have version control systemz!**
+- Never leave code commented out the is no longer being used. **Version control systems make commented-out code unnecessary.**
 
 #### Code smells in comments
 - **Inappropiate information:** anything that is better in another system (e.g. versions control system)  
@@ -367,7 +367,7 @@ _The comments on a public API that **will use a lot of people** are another clea
 
 
   ✅ **Ordered code**
-  It's much better to have a function at the top,which in turn calls other functions that are declared in the calling order.
+  It's much better to have a function at the top, which in turn calls other functions, declared in the order they are invoked.
   ```java
   public void a(){
      b();
@@ -466,7 +466,7 @@ _The comments on a public API that **will use a lot of people** are another clea
   - Recommended **2 or 4 spaces** of indentation
   - Recommended **maximum 100 characters,** after that amount, make a line break.
 
-### Gestión de errores
+### Error Handling
 Error handling can make your code very dirty, so it's worth paying attention to.
 
 - Return **exceptions** instead of error codes
@@ -621,7 +621,7 @@ Error handling can make your code very dirty, so it's worth paying attention to.
     }
     ```
 
-### Test unitarios
+### Unit Testing
 - Essential for code refactoring -
 - Maintaining high coverage **(>90%)** offers great security when making changes to your functions.
 
@@ -839,7 +839,7 @@ public class CreditCardPayment implements Payment {
         ....
 }
 
-public class CreditCardPayment implements Payment {
+public class PayPalPayment implements Payment {
     public void process() {
         ....
 }
@@ -860,7 +860,7 @@ All classes that inherit from another can be used interchangeably without any pr
 
 ❌ **Bad example**
 
-The **Dog and  Delphin** classes inherit from **Mammal**, but the **Delphin** class in the function **Walk** throw an exception because a dolphin doesn't walk, **¡that violates this principle!** because if a class has an **Mammal** object whatever implementation, it not be cause any problem.
+The **Dog and  Dolphin** classes inherit from **Mammal**, but the **Dolphin** class in the function **Walk** throw an exception because a dolphin doesn't walk, **this behavior violates the principle.** because if a class has an **Mammal** object whatever implementation, it not be cause any problem.
 ```java
 public class Mammal {
     private Integer weight;
@@ -884,7 +884,7 @@ public class Dog extends Mammal {
 
 }
 
-public class Delphin extends Mammal {
+public class Dolphin extends Mammal {
 
 	@Override
 	public void walk() {
@@ -920,7 +920,7 @@ public class Dog extends landMammal{
 
 }
 
-public class Delphin extends Mammal {
+public class Dolphin extends Mammal {
   
 }
 
