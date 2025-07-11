@@ -7,7 +7,7 @@ In this repository, I will be documenting the concepts, principles and best prac
 
   * [📛 Naming](#-naming)
   * [🔧 Functions](#-functions)
-  * [💬 Comments](#-comments)
+  * [💬 Comments](###-comment)
   * [📐 Code Formatting](#-code-formatting)
   * [⚠️ Error Handling](#️-error-handling)
   * [🧪 Unit Testing](#-unit-testing)
