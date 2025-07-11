@@ -18,7 +18,6 @@ In this repository, I will be documenting the concepts, principles and best prac
   - [Liskov Substitution Principle (LSP)](#liskov-substitution-principle-lsp)
   - [Interface Segregation Principle (ISP)](#interface-segregation-principle-isp)
   - [Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
-    
 
 ## Principles of Clean Code
 Clean code is easy of read, understand and modify. it's achieved through a clear structured, meaningful names, small functions and **Single Responsability per Component**. its quality is maintained and improved through continuous and safe refactoring, supported by a good unit test coverage that allows those changes to be made with confidence.
@@ -1040,3 +1039,5 @@ public class BasicCalculator implements Operations {
 - This is achieved through mechanisms that create instances of the desired implementations.
 - Dependency inversion is expensive.
 - ⚠️Analyze whether a module is **volatile** or not⚠️ before abstracting dependencies in this way.
+
+[Example of the dependency Inversion Irinciple](https://github.com/MateoRodriguez0/clean-code-java/tree/main/src/main/java/com/clean/code/solid/idp)
