@@ -1,26 +1,38 @@
-# Solid and clean code in Java
+ # Solid and clean code in Java
 In this repository, I will be documenting the concepts, principles and best practices of Clean code y the SOLID principles in Java. My goal is to have a resource that I can return when I need to review or consult especific examples. here, you'll find examples organized by topics, along with brief explanations for each. 
 
 ## 📚 Table of Contents
 
 - [Principles of Clean Code](#principles-of-clean-code)
   - [Names That Reveal Intention](#names-that-reveal-intention)
+    - [Names should be clear and reflect our intention](#names-should-be-clear-and-reflect-our-intention)
+    - [Avoid misinformation](#avoid-misinformation)
+    - [Use pronounceable names](#use-pronounceable-names)
+    - [Names of classes and methods](#names-of-classes-and-methods)
+    - [Add context that provides meaning](#add-context-that-provides-meaning)
   - [Functions](#functions)
   - [Comments](#comments)
+    - [Code smells in commentss](#code-smells-in-comments)
+    - [Good comments](#good-comments)
   - [Code Formatting](#code-formatting)
   - [Error Handling](#error-handling)
   - [Unit Testing](#unit-testing)
+    - [Test Driven development](#test-driven-development)
+  - [Code smells in the development environment](#Code-smells-in-the-development-environment)
   - [Code Smells in Java](#code-smells-in-java)
+    - [Very long list of imports](#Very-long-list-of-imports)
+    - [Enums vs Constants](enums-vs-constants)
 - [SOLID Principles](#solid-principles)
-  - [Cohesion and Coupling](#cohesion-and-coupling)
-  - [Single Responsibility Principle (SRP)](#single-responsibility-principle-srp)
+  - [Cohesion](#cohesion)
+  - [Coupling](#coupling)
+  - [ Responsibility Principle (SRP)](#-responsibility-principle-srp)
   - [Open/Closed Principle (OCP)](#openclosed-principle-ocp)
   - [Liskov Substitution Principle (LSP)](#liskov-substitution-principle-lsp)
   - [Interface Segregation Principle (ISP)](#interface-segregation-principle-isp)
   - [Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
 
 ## Principles of Clean Code
-Clean code is easy of read, understand and modify. it's achieved through a clear structured, meaningful names, small functions and **Single Responsability per Component**. its quality is maintained and improved through continuous and safe refactoring, supported by a good unit test coverage that allows those changes to be made with confidence.
+Clean code is easy of read, understand and modify. it's achieved through a clear structured, meaningful names, small functions and ** Responsability per Component**. its quality is maintained and improved through continuous and safe refactoring, supported by a good unit test coverage that allows those changes to be made with confidence.
 ### Names that reveal intention
 
 #### Names should be clear and reflect our intention.
@@ -157,7 +169,7 @@ This way It becomes clearer what each one is used.
   ```
 
 
-- **Single level of abstraction**.
+- **Level of abstraction**
 
   ❌ **Bad example**
 
@@ -257,7 +269,7 @@ This way It becomes clearer what each one is used.
      //Create Date: 10-07-2025
      public class Comments
     ```
-- **Comentarios reduntantes:** This type of comments not add value because they are too obvious.
+- **Redundant comments:** This type of comments not add value because they are too obvious.
 
 
     ```java
@@ -271,12 +283,12 @@ This way It becomes clearer what each one is used.
          return a +b;
      }
     ```
-- **Comentarios obsoletos:** Any comment outdated must be updated or deleted, because it not add nothing.
+- **Obsolete comments:** Any comment outdated must be updated or deleted, because it not add nothing.
 
     ```java
      private Date LastLoginDate; //Last login date as String (DD-MM-YYYY HH:MM)
     ```
-- **Comentarios mal redactados**
+- **Poorly written comments**
   - Do not make spelling mistakes.
   - Don't comment on obvious things! You must be direct.
   - Make sure you understand.
@@ -522,7 +534,7 @@ Error handling can make your code very dirty, so it's worth paying attention to.
     }
     ```
 
-    **Recommendation:** Have the try catch separate from a function, to have both functions working at a single level of responsibility.
+    **Recommendation:** Have the try catch separate from a function, to have both functions working at a  level of responsibility.
 
 
 - **Unchecked exceptions**
@@ -558,11 +570,11 @@ Error handling can make your code very dirty, so it's worth paying attention to.
     ```
     In this code, the **Battery** and **Engine** methods throw **Checked exceptions** type exceptions, so each method that invokes them must throw those exceptions or capture them. However, if they were **Unchecked exceptions**, they would only be captured in the **startDriving** method.mbio si fueran **Unchecked exceptions** solo se capturan en el metodo **startDriving**.
 
-- Nunca devolver **null**
+- Never return **null**
 
   ❌ **Bad example**
   
-  Devolver **null** nos obliga a validarlo siempre, y si no se valida en cada vez que se invoque un metodo de devuelva **null** se lanzaria una **NullPointerException.**
+  Returning **null** forces us to always validate it, and if it is not validated every time a method that returns **null** is invoked, a **NullPointerException** would be thrown.**
 
   ```java
   public void processRequestBatch() {
@@ -588,7 +600,7 @@ Error handling can make your code very dirty, so it's worth paying attention to.
   }
 
   ```
-    - Nunca pasar **null**
+    - Never pass **null**
 
     ❌ **Bad example**
     
@@ -631,7 +643,7 @@ Error handling can make your code very dirty, so it's worth paying attention to.
 **2.** Write just enough code to pass the test
 
 **3.** Improve the code without changin its behavior
-### Code smells en el entorno desarrollo
+### Code smells in the development environment
 - **Compilation Requires More Than One Step:** You should be able to compile the code in the simplest way possible.
 - **Tests require more than one step**
 - Tests should be run with a single command
@@ -639,13 +651,13 @@ Error handling can make your code very dirty, so it's worth paying attention to.
 
 
 ### Code smells in Java
-#### Lista de imports muy largas
+#### Very long list of imports
 - If you use **2 or more** classes from a package, import the entire package:
 
 _import package.*_
 - We don't want to clutter up our modules with 100 lines of imports.
 
-- **Inheriting constants:**
+#### Inheriting constants
 
  ❌ **Bad example**
 
@@ -679,7 +691,7 @@ In this example, the **EasyGame** class inherits from **Game**, which in turn im
   ``` 
 
 
-- **Enums vs Constants**
+#### Enums vs Constants
   
   Use enums whenever possible as they provide abstract functions, which save us from having to perform validations when using constants.
   ```java
@@ -719,21 +731,21 @@ They are a set of principles proposed by Robert C. Marin that will help us:
 - Create **scalable software**
 - Create a **clean and maintainable architecture**
 - Write code that is **easier to read** and understand
-- Create modules with high **cohesion and loose coupling**
+- Create modules with high **and loose coupling**
+  
 ### Cohesion 
-- It is the degree to which the elements of a module are related.
+- It is the degree to which the elements of a module are related.**
 - We are interested in a module having a bery high cohesion.
-
 
 ### coupling
 - Degree to which two modules are related to each other.
 - the modules should have little coupling. 
 - if a module is modified, *it should affect the others as little as possible.*
 
-### Single responsability principle (SRP)
+###  responsability principle (SRP)
 
 - A module should have **one reason to change,** not that a module should do one thing.
-- A module must be **responsable for a single user of the system.**
+- A module must be **responsable for a  user of the system.**
 
 ❌ **Bad example**
   
@@ -1040,4 +1052,6 @@ public class BasicCalculator implements Operations {
 - Dependency inversion is expensive.
 - ⚠️Analyze whether a module is **volatile** or not⚠️ before abstracting dependencies in this way.
 
-[Example of the dependency Inversion Irinciple](https://github.com/MateoRodriguez0/clean-code-java/tree/main/src/main/java/com/clean/code/solid/idp)
+[Example of the dependency inversion principle](https://github.com/MateoRodriguez0/clean-code-java/tree/main/src/main/java/com/clean/code/solid/idp)
+
+
