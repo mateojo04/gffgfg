@@ -21,7 +21,7 @@ In this repository, I will be documenting the concepts, principles and best prac
   - [Code smells in the development environment](#Code-smells-in-the-development-environment)
   - [Code Smells in Java](#code-smells-in-java)
     - [Very long list of imports](#Very-long-list-of-imports)
-    - [Enums vs Constants](enums-vs-constants)
+    - [Enums vs Constants](#enums-vs-constants)
 - [SOLID Principles](#solid-principles)
   - [Cohesion](#cohesion)
   - [Coupling](#coupling)
